@@ -20,7 +20,7 @@ class PointsController {
 
             return response.json(points);
         } catch (err) {
-            return response.status(401).send({ error: err.message });
+            return response.status(400).send({ error: err.message });
         }
     }
 
@@ -41,7 +41,7 @@ class PointsController {
 
             return response.json({ point, items });
         } catch (err) {
-            return response.status(401).send({ error: err.message });
+            return response.status(400).send({ error: err.message });
         }
     }
 
@@ -91,7 +91,7 @@ class PointsController {
                 ...point,
             });
         } catch (err) {
-            return response.status(401).send({ error: err.message });
+            return response.status(400).send({ error: err.message });
         }
     }
 }

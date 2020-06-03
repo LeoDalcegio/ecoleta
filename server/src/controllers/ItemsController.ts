@@ -16,7 +16,7 @@ class ItemsController {
         
             return response.json(serializedItems);
         } catch (err) {
-            return response.status(401).send({ error: err.message });
+            return response.status(400).send({ error: err.message });
         }
     }
 }

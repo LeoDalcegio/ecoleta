@@ -6,8 +6,7 @@ import {
     Image,
     Text,
     SafeAreaView,
-    Linking,
-    TextInput
+    Linking
 } from 'react-native';
 import { Feather as Icon, FontAwesome } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";

@@ -6,10 +6,9 @@
 </h3>
 
 <p align="center">
-  <a href="https://rocketseat.com.br">
-    <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
-  </a>
   <a>
+  <img alt="Project programing languages count" src="https://img.shields.io/github/languages/count/LeoDalcegio/ecoleta?color=34cb79">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/LeoDalcegio/ecoleta?color=34cb79">
   <img alt="License" src="https://img.shields.io/github/license/LeoDalcegio/ecoleta?color=%237519C1">
   <br>
 </p>
@@ -40,5 +39,5 @@ The project has been created using the following technologies.
 ## :heavy_check_mark: Result:
 
 <h1 align="center" id="result">
-    <img alt="Web" src=".github/VideoWeb.gif" width="900px">
+    <img alt="Web" src=".github/gif-ecoleta.gif" width="900px">
 </h1>

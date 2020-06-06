@@ -21,6 +21,7 @@ interface Params {
 interface Data {
     point: {
         image: string;
+        image_url: string;
         name: string;
         email: string;
         whatsapp: string;
@@ -44,7 +45,7 @@ const Detail = () => {
         api.get(`points/${routeParams.point_id}`).then(response => {
             setData(response.data)
         })
-    })
+    }, []);
 
     function handleNavigateBack() {
         navigation.goBack();
@@ -54,7 +55,7 @@ const Detail = () => {
         Linking.openURL(`whatsapp://send?phone=${data.point.whatsapp}&text=Tenho interesse sobre coleta de resíduos`)
     }
 
-    function hancleComposeMail() {
+    function handleComposeMail() {
         MailComposer.composeAsync({
             subject: 'Interesse na coleta de resíduos',
             recipients: [data.point.email]
@@ -72,7 +73,7 @@ const Detail = () => {
                     <Icon name="arrow-left" size={20} color="#34cb79" />
                 </TouchableOpacity>
 
-                <Image style={styles.pointImage} source={{ uri: data.point.image }} />
+                <Image style={styles.pointImage} source={{ uri: data.point.image_url }} />
 
                 <Text style={styles.pointName}>{data.point.name}</Text>
                 <Text style={styles.pointItems}>
@@ -85,12 +86,12 @@ const Detail = () => {
                 </View>
             </View>
             <View style={styles.footer}>
-                <RectButton style={styles.button} onPress={() => {}}>
+                <RectButton style={styles.button} onPress={handleWhatsapp}>
                     <FontAwesome name="whatsapp" size={20} color="#FFF" />
                     <Text style={styles.buttonText}>Whatsapp</Text>
                 </RectButton>
-                <RectButton style={styles.button} onPress={hancleComposeMail}>
-                    <FontAwesome name="mail" size={20} color="#FFF" />
+                <RectButton style={styles.button} onPress={handleComposeMail}>
+                    <Icon name="mail" size={20} color="#fff" />
                     <Text style={styles.buttonText}>E-mail</Text>
                 </RectButton>
             </View>

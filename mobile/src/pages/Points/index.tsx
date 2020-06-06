@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, TouchableOpacity, Image, Text, ScrollView, Alert } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { Constants } from "expo";
 import MapView, { Marker } from "react-native-maps";
 import { SvgUri } from 'react-native-svg'
+import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import api from '../../services/api';
 
@@ -18,6 +18,7 @@ interface Point {
     id: number;
     name: string;
     image: string;
+    image_url: string;
     latitude: number;
     longitude: number;
 }
@@ -58,7 +59,9 @@ const Points = () => {
                 longitude
             ])
         }
-    });
+
+        loadPosition();
+    }, []);
 
     useEffect(() => {
         api.get('points', {
@@ -132,7 +135,7 @@ const Points = () => {
                                 }}
                             >
                                 <View style={styles.mapMarkerContainer}>
-                                    <Image style={styles.mapMarkerImage} source={{ uri: point.image }} />
+                                    <Image style={styles.mapMarkerImage} source={{ uri: point.image_url }} />
                                     <Text style={styles.mapMarkerTitle}>{point.name}</Text>
                                 </View>
                             </Marker>
